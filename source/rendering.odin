@@ -3,7 +3,7 @@ package game
 import gl "vendor:OpenGL"
 import m "core:math/linalg"
 
-MAX_INSTANCES :: 10000
+MAX_INSTANCES :: 50000
 
 Renderer :: struct {
     vao, vbo, instance_vbo: u32,

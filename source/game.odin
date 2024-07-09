@@ -53,12 +53,12 @@ update_game :: proc(game: ^Game) {
 spawn_system :: proc(world: ^World) {
     num_entities := 100
     for i in 0..<num_entities {
-        if len(world.entities) >= 10000 do break
+        if len(world.entities) >= 50000 do break
 
         e := create_entity(world, {.Transform, .Velocity, .Color})
         set_transform(world, e, Transform{
             position = {rand.float32_range(-4.5, 4.5), rand.float32_range(-4.5, 4.5), 0},
-            scale = {rand.float32_range(0.05, 0.15), rand.float32_range(0.05, 0.15)},
+            scale = {rand.float32_range(0.025, 0.05), rand.float32_range(0.025, 0.05)},
             rotation = rand.float32_range(0, 2*math.PI),
         })
         set_velocity(world, e, Velocity{rand.float32_range(-1, 1), rand.float32_range(-1, 1)})

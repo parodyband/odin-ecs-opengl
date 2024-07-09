@@ -5,7 +5,7 @@ import gl "vendor:OpenGL"
 import "core:fmt"
 import "base:runtime"
 
-TITLE :: "ECS Sprite Renderer"
+TITLE :: "ECS Demo"
 
 Window :: struct {
     handle: glfw.WindowHandle,
@@ -23,7 +23,7 @@ init_window :: proc() -> (window: Window, ok: bool) {
     glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
     glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
 
-    window.handle = glfw.CreateWindow(800, 600, TITLE, nil, nil)
+    window.handle = glfw.CreateWindow(1280, 720, TITLE, nil, nil)
     if window.handle == nil {
         fmt.println("Failed to create GLFW window")
         return
