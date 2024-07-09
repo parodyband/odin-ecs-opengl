@@ -1,7 +1,6 @@
 package game
 
 import "core:math/rand"
-import "core:math"
 import "vendor:glfw"
 import m "core:math/linalg"
 import fmt "core:fmt"
@@ -59,7 +58,7 @@ spawn_system :: proc(world: ^World) {
         set_transform(world, e, Transform{
             position = {rand.float32_range(-4.5, 4.5), rand.float32_range(-4.5, 4.5), 0},
             scale = {rand.float32_range(0.025, 0.05), rand.float32_range(0.025, 0.05)},
-            rotation = rand.float32_range(0, 2*math.PI),
+            rotation = rand.float32_range(0, 2*m.PI),
         })
         set_velocity(world, e, Velocity{rand.float32_range(-1, 1), rand.float32_range(-1, 1)})
         set_color(world, e, Color{
@@ -85,7 +84,7 @@ movement_system :: proc(world: ^World) {
 }
 
 color_fade_system :: proc(world: ^World) {
-    fade_rate :f32= 100  // Adjust this value to control fade speed
+    fade_rate :f32= 100
     
     for e, _ in world.entities {
         if e >= Entity(len(world.components.mask)) do continue
